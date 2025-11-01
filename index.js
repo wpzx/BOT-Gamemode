@@ -30,7 +30,7 @@ const PORT = process.env.PORT || 3001
 
 const CHANNEL_LOG_WHITELIST = "1415347070218539150";
 const CLIENT_ID = "1382232557604573295";
-const TOKEN = "MTM4MjIzMjU1NzYwNDU3MzI5NQ.Gpm5Ck.gWSXZLvC0jj40ZnpD9ufU5_r-e7Ddol4zLaah0";
+const TOKEN = "MTM4MjIzMjU1NzYwNDU3MzI5NQ.GuSNe5.rt9rm1OTwZVRNQ8NpcmQwVMDR2wlh6ZJkTP2Jo";
 
 app.use(cors())
 app.use(express.json())

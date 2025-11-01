@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { REST, Routes } = require('discord.js');
 
-const TOKEN = "MTM4MjIzMjU1NzYwNDU3MzI5NQ.Gpm5Ck.gWSXZLvC0jj40ZnpD9ufU5_r-e7Ddol4zLaah0";
+const TOKEN = "MTM4MjIzMjU1NzYwNDU3MzI5NQ.GuSNe5.rt9rm1OTwZVRNQ8NpcmQwVMDR2wlh6ZJkTP2Jo";
 const CLIENT_ID = "1382232557604573295";
 
 const commands = [];
