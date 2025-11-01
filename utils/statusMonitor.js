@@ -1,9 +1,9 @@
 const { EmbedBuilder } = require('discord.js');
-const config = require('../config.json');
+const statusChannelId = "1415347070218539150";
 
 module.exports = (client) => {
   client.on('ready', async () => {
-    const channel = await client.channels.fetch(config.statusChannelId).catch(() => null);
+    const channel = await client.channels.fetch(statusChannelId).catch(() => null);
     if (!channel) return;
 
     const embed = new EmbedBuilder()
@@ -16,7 +16,7 @@ module.exports = (client) => {
   });
 
   client.on('shardDisconnect', async () => {
-    const channel = await client.channels.fetch(config.statusChannelId).catch(() => null);
+    const channel = await client.channels.fetch(statusChannelId).catch(() => null);
     if (!channel) return;
 
     const embed = new EmbedBuilder()
@@ -29,7 +29,7 @@ module.exports = (client) => {
   });
 
   const sendOfflineStatus = async () => {
-    const channel = await client.channels.fetch(config.statusChannelId).catch(() => null);
+    const channel = await client.channels.fetch(statusChannelId).catch(() => null);
     if (!channel) return;
 
     const embed = new EmbedBuilder()

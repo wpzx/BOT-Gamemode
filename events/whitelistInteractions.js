@@ -1,6 +1,7 @@
 const { ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder, EmbedBuilder } = require("discord.js")
 const whitelistManager = require("../utils/whitelistManager")
-const config = require("../config.json")
+const CHANNEL_LOG_WHITELIST = "1415347070218539150";
+
 
 module.exports = {
   name: "interactionCreate",
@@ -8,7 +9,7 @@ module.exports = {
     if (!interaction.isButton() && !interaction.isModalSubmit()) return
 
     const member = interaction.member
-    const ADMIN_ROLE_ID = config.ADMIN_ROLE_ID
+    const ADMIN_ROLE_ID = "1382028511228985345";
 
     // Handle button interactions
     if (interaction.isButton()) {
@@ -156,7 +157,7 @@ module.exports = {
             .setFooter({ text: "Sistem Whitelist Server" })
             .setTimestamp()
 
-          const logChannel = client.channels.cache.get(config.ChannelLogWhitelist)
+          const logChannel = client.channels.cache.get(CHANNEL_LOG_WHITELIST )
           if (logChannel) {
             const logEmbed = new EmbedBuilder()
               .setTitle("🟢 Server Ditambahkan ke Whitelist")
@@ -204,7 +205,7 @@ module.exports = {
             .setFooter({ text: "Sistem Whitelist Server" })
             .setTimestamp()
 
-          const logChannel = client.channels.cache.get(config.ChannelLogWhitelist)
+          const logChannel = client.channels.cache.get(CHANNEL_LOG_WHITELIST )
           if (logChannel) {
             const logEmbed = new EmbedBuilder()
               .setTitle("🔴 Server Dihapus dari Whitelist")

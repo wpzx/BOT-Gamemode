@@ -9,7 +9,6 @@ const {
   TextInputBuilder,
   TextInputStyle,
 } = require("discord.js")
-const config = require("../../config.json")
 const whitelistManager = require("../../utils/whitelistManager")
 
 module.exports = {
@@ -20,7 +19,7 @@ module.exports = {
 
   async execute(interaction) {
     const member = interaction.member
-    const ADMIN_ROLE_ID = config.ADMIN_ROLE_ID
+    const ADMIN_ROLE_ID = "1382028511228985345";
 
     // Cek apakah user punya role admin
     if (!member.roles.cache.has(ADMIN_ROLE_ID)) {
