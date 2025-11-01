@@ -1,7 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 const { REST, Routes } = require('discord.js');
-const config = require('./config.json');
+
+const TOKEN = "MTM4MjIzMjU1NzYwNDU3MzI5NQ.Gpm5Ck.gWSXZLvC0jj40ZnpD9ufU5_r-e7Ddol4zLaah0";
+const CLIENT_ID = "1382232557604573295";
 
 const commands = [];
 
@@ -22,18 +24,18 @@ for (const folder of commandFolders) {
   }
 }
 
-const rest = new REST().setToken(config.token);
+const rest = new REST().setToken(TOKEN);
 
 async function deployCommands() {
   try {
     console.log(`🔄 Registering ${commands.length} commands...`);
     await rest.put(
-      Routes.applicationCommands(config.clientId),
+      Routes.applicationCommands(CLIENT_ID),
       { body: commands }
     );
-    console.log('✅ Semua command berhasil didaftarkan.');
+    console.log("✅ Semua command berhasil didaftarkan.");
   } catch (error) {
-    console.error('❌ Gagal daftar command:', error);
+    console.error("❌ Gagal daftar command:", error);
   }
 }
 

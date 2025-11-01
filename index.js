@@ -16,7 +16,6 @@ const {
 } = require("discord.js")
 const express = require("express")
 const cors = require("cors")
-const config = require("./config.json")
 const statusMonitor = require("./utils/statusMonitor")
 const whitelistManager = require("./utils/whitelistManager")
 const sheetsManager = require("./utils/sheetsManager")
@@ -28,6 +27,10 @@ const client = new Client({
 
 const app = express()
 const PORT = process.env.PORT || 3001
+
+const CHANNEL_LOG_WHITELIST = "1415347070218539150";
+const CLIENT_ID = "1382232557604573295";
+const TOKEN = "MTM4MjIzMjU1NzYwNDU3MzI5NQ.Gpm5Ck.gWSXZLvC0jj40ZnpD9ufU5_r-e7Ddol4zLaah0";
 
 app.use(cors())
 app.use(express.json())
@@ -50,7 +53,7 @@ app.get("/api/whitelist/check/:ip", async (req, res) => {
     console.log(`[API] Whitelist check for IP: ${ip} - Result: ${isWhitelisted}`)
 
     if (!isWhitelisted && client.isReady()) {
-      const channel = client.channels.cache.get(config.ChannelLogWhitelist)
+      const channel = client.channels.cache.get(CHANNEL_LOG_WHITELIST )
       if (channel) {
         const embed = {
           color: 0xff0000,
@@ -214,11 +217,11 @@ for (const folder of commandFolders) {
   }
 }
 
-const rest = new REST({ version: "10" }).setToken(config.token)
+const rest = new REST({ version: "10" }).setToken(TOKEN);
 rest
-  .put(Routes.applicationCommands(config.clientId), { body: commandsArray })
+  .put(Routes.applicationCommands(CLIENT_ID), { body: commandsArray })
   .then(() => console.log("✅ Commands berhasil di-deploy"))
-  .catch(console.error)
+  .catch(console.error);
 
 const eventsPath = path.join(__dirname, "events")
 const eventFiles = fs.readdirSync(eventsPath).filter((file) => file.endsWith(".js"))
@@ -261,10 +264,10 @@ process.on("uncaughtException", (err) => {
 })
 
 client
-  .login(config.token)
+  .login(TOKEN)
   .then(() => {
-    console.log("🔓 Login ke Discord berhasil.")
+    console.log("🔓 Login ke Discord berhasil.");
   })
   .catch((err) => {
-    console.error("❌ Gagal login ke Discord:", err)
-  })
+    console.error("❌ Gagal login ke Discord:", err);
+  });
