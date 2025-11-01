@@ -1,0 +1,11 @@
+{
+  "servers": [
+    {
+      "ip": "127.0.0.1:7777",
+      "owner": "wapi",
+      "addedBy": "nsewapi",
+      "addedAt": "2025-09-20T17:55:58.433Z",
+      "status": "active"
+    }
+  ]
+}
